@@ -22,6 +22,7 @@ Pre-built binaries are available in the "Builds" directory. Use the "View Raw" l
 * Currently only four maps are implemented, as each one requires some manual fiddling to look right.
 * Teleporting sometimes goes through the floor.
 * Random objects on maps which are not (easily) removable.
+* Levels need custom floors/skyboxes to look better.
 * A thousand other features which would be cool to add but aren't there yet.
 
 ## Links
