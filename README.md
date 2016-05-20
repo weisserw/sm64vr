@@ -27,6 +27,8 @@ Pre-built binaries are available in the "Builds" directory. Use the "View Raw" l
 
 ## Links
 
+Demo video: https://www.youtube.com/watch?v=4nf7bXA_JPU
+
 Suggested background soundtrack: https://www.youtube.com/watch?v=kgVUipXiqOc
 
 SteamVR Unity Toolkit: https://github.com/thestonefox/SteamVR_Unity_Toolkit
