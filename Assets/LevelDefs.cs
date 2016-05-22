@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-// 5: cold mountain, remove mat16
+// 5: cold mountain
 // 7: castle interior
 // 8: castle interior
 // 9: castle interior
@@ -41,6 +41,7 @@ using System.Collections.Generic;
 
 public class LevelDef {
     public int Index;
+    public bool Indoor;
     public Vector3 CameraStart;
     public HashSet<int> RemoveMats;
 }
@@ -55,6 +56,7 @@ public static class LevelDefs {
         Defs["Castle Exterior"] = new LevelDef() {
             Index = 26,
             CameraStart = new Vector3(17.5f, 2.7f, 39.1f),
+            Indoor = false,
             RemoveMats = new HashSet<int>(new int[] {
                 2,
                 5,
@@ -84,6 +86,7 @@ public static class LevelDefs {
         Defs["Bob-omb Battlefield"] = new LevelDef() {
             Index = 14,
             CameraStart = new Vector3(45.04f, 0.24f, 59.77f),
+            Indoor = false,
             RemoveMats = new HashSet<int>(new int[] {
                13,
                23,
@@ -136,6 +139,7 @@ public static class LevelDefs {
         Defs["Whomp's Fortress"] = new LevelDef() {
             Index = 36,
             CameraStart = new Vector3(-39.57f, 5.12f, 40.06f),
+            Indoor = false,
             RemoveMats = new HashSet<int>(new int[] {
                14,
                18,
@@ -181,6 +185,7 @@ public static class LevelDefs {
         Defs["Cool, Cool Mountain"] = new LevelDef() {
             Index = 5,
             CameraStart = new Vector3(13.32f, 25.608f, -24.71f),
+            Indoor = false,
             RemoveMats = new HashSet<int>(new int[] {
                16,
                17,
@@ -224,6 +229,46 @@ public static class LevelDefs {
                57,
                58,
                59
+            })
+        };
+        Defs["Tick Tock Clock"] = new LevelDef() {
+            Index = 24,
+            CameraStart = new Vector3(-13.78f, -48.22f, -0.13f),
+            Indoor = true,
+            RemoveMats = new HashSet<int>(new int[] {
+                16,
+                17,
+                20,
+                21,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53
             })
         };
     }

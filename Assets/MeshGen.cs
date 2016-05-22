@@ -16,13 +16,19 @@ public class MeshGen : MonoBehaviour {
         mesh.RecalculateBounds();
 
         // TODO: fix skybox and floor for levels that need it
-        // TODO: fix teleportation falling through cold mountain
+        // TODO: locomotion
+        // TODO: more maps
+        // TODO: fix teleportation falling through floor sometimes
+        // TODO: investigate Zelda OOT
 
         GetComponent<MeshFilter>().mesh = mesh;
 
         GetComponent<MeshCollider>().sharedMesh = mesh;
 
         GetComponent<MeshRenderer>().materials = materials;
+
+        if (LevelDefs.Defs[LevelDefs.CurrentLevel].Indoor)
+            GameObject.FindWithTag("DirectionalLight").SetActive(false);
 	}
 
     private Material[] LoadLevel(Mesh mesh, LevelDef def) {
