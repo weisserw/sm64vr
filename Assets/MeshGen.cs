@@ -18,7 +18,6 @@ public class MeshGen : MonoBehaviour {
         // TODO: fix skybox and floor for levels that need it
         // TODO: locomotion
         // TODO: more maps
-        // TODO: fix teleportation falling through floor sometimes
         // TODO: investigate Zelda OOT
 
         GetComponent<MeshFilter>().mesh = mesh;

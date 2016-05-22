@@ -169,7 +169,7 @@ public class ModifiedBezierPointer : SteamVR_WorldPointer {
             projectedBeamDown.transform.position = new Vector3(projectedBeamJoint.transform.position.x, projectedBeamJoint.transform.position.y - collidedWith.distance, projectedBeamJoint.transform.position.z);
             projectedBeamDown.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             pointerContactTarget = collidedWith.transform;
-            destinationPosition = projectedBeamDown.transform.position;
+            destinationPosition = collidedWith.point;
 
             base.PointerIn();
         }
