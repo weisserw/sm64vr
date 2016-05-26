@@ -15,9 +15,10 @@ public class MeshGen : MonoBehaviour {
 
         mesh.RecalculateBounds();
 
-        // TODO: fix skybox and floor for levels that need it
-        // TODO: locomotion
+        // TODO: change direction, use left controller to fix moving when resetting position
+        // TODO: what happened to bridge in castle exterior?
         // TODO: more maps
+        // TODO: stream music from youtube?
         // TODO: investigate Zelda OOT
 
         GetComponent<MeshFilter>().mesh = mesh;
@@ -52,6 +53,19 @@ public class MeshGen : MonoBehaviour {
             }
         }
 
+        var removemats = new HashSet<int>();
+        foreach (var m in def.RemoveMats) {
+            if (m.IndexOf('-') > -1) {
+                var c = m.Split('-');
+                var end = int.Parse(c[1]);
+
+                for (var start = int.Parse(c[0]); start <= end; start++)
+                    removemats.Add(start);
+            } else {
+                removemats.Add(int.Parse(m));
+            }
+        }
+
         using (StreamReader sr = new StreamReader(string.Format(@"{0}\{1}\model.obj", path, num))) {
             string line;
             List<int> currentTris = null;
@@ -67,7 +81,7 @@ public class MeshGen : MonoBehaviour {
 
                     int matnum = int.Parse(line.Substring("usemtl mat".Length));
 
-                    if (!def.RemoveMats.Contains(matnum)) {
+                    if (!removemats.Contains(matnum)) {
                         Material mat;
                         if (materialdict.ContainsKey(matnum)) {
                             mat = materialdict[matnum];
