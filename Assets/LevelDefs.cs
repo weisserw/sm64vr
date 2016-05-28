@@ -11,10 +11,10 @@ using System.Collections.Generic;
 // 14: bob-omb battlefield - Finished
 // 15: snowman's land  - Finished
 // 17: wet-dry - TODO
-// 18: wet-dry city
+// 18: wet-dry city - TODO
 // 19: jolly roger bay
-// 21: tiny-huge - TODO
-// 22: tiny-huge - TODO
+// 21: tiny-huge - Finished
+// 22: tiny-huge - Finished
 // 24: tick tock clock - Finished
 // 25: rainbow ride
 // 26: castle exterior - Finished
@@ -42,6 +42,7 @@ using System.Collections.Generic;
 public class LevelDef {
     public int Index;
     public bool Indoor;
+    public float Scale;
     public Vector3 CameraStart;
     public string[] RemoveMats;
 }
@@ -57,6 +58,7 @@ public static class LevelDefs {
             Index = 26,
             CameraStart = new Vector3(17.5f, 2.7f, 39.1f),
             Indoor = false,
+            Scale = 1.0f,
             RemoveMats = new string[] {
                 "2",
                 "5",
@@ -69,6 +71,7 @@ public static class LevelDefs {
             Index = 14,
             CameraStart = new Vector3(45.04f, 0.24f, 59.77f),
             Indoor = false,
+            Scale = 1.0f,
             RemoveMats = new string[] {
                 "13",
                 "23-29",
@@ -82,6 +85,7 @@ public static class LevelDefs {
             Index = 36,
             CameraStart = new Vector3(-39.57f, 5.12f, 40.06f),
             Indoor = false,
+            Scale = 1.0f,
             RemoveMats = new string[] {
                 "14",
                 "18",
@@ -94,10 +98,35 @@ public static class LevelDefs {
             Index = 5,
             CameraStart = new Vector3(13.32f, 25.608f, -24.71f),
             Indoor = false,
+            Scale = 1.0f,
             RemoveMats = new string[] {
                 "16-43",
                 "45-48",
                 "50-59",
+            }
+        };
+        Defs["Tiny-Huge Island (Huge)"] = new LevelDef() {
+            Index = 21,
+            CameraStart = new Vector3(72.03f, -29.69f, 72.42f),
+            Indoor = false,
+            Scale = 1.0f,
+            RemoveMats = new string[] {
+                "12",
+                "15-35",
+                "37-42",
+                "44-62",
+                "65",
+            }
+        };
+        Defs["Tiny-Huge Island (Tiny)"] = new LevelDef() {
+            Index = 22,
+            CameraStart = new Vector3(16.58f, -7.42f, 18.45f),
+            Indoor = false,
+            Scale = 0.25f,
+            RemoveMats = new string[] {
+                "12",
+                "15-20",
+                "23-54",
             }
         };
         /*Defs["Hazy Maze Cave"] = new LevelDef() {
@@ -112,16 +141,43 @@ public static class LevelDefs {
             Index = 15,
             CameraStart = new Vector3(-58.0f, 10.24f, 6.08f),
             Indoor = false,
+            Scale = 1.0f,
             RemoveMats = new string[] {
                 "12-13",
                 "17-37",
                 "39-57",
             }
         };
+        Defs["Wet-Dry World"] = new LevelDef() {
+            Index = 17,
+            CameraStart = new Vector3(-34.08f, 0.64f, 2.94f),
+            Indoor = true,
+            Scale = 1.0f,
+            RemoveMats = new string[] {
+                "15-16",
+                "21-28",
+                "31-52",
+                "55-59",
+                "62-63",
+            }
+        };
+        /*Defs["Tall, Tall Mountain"] = new LevelDef() {
+            Index = 46,
+            Indoor = false,
+            RemoveMats = new string[] {
+                "6-11",
+                "13-17",
+                "20-23",
+                "25-30",
+                "32-41",
+                "46-53",
+            }
+        };*/
         Defs["Tick Tock Clock"] = new LevelDef() {
             Index = 24,
             CameraStart = new Vector3(-13.78f, -48.22f, -0.13f),
             Indoor = true,
+            Scale = 1.0f,
             RemoveMats = new string[] {
                 "16-17",
                 "20-21",

@@ -108,7 +108,7 @@ public class MeshGen : MonoBehaviour {
                     }
                 } else if (line.StartsWith("v ")) {
                     var c = line.Substring("v ".Length).Split(' ');
-                    vertices.Add(new Vector3(float.Parse(c[0]), float.Parse(c[1]), float.Parse(c[2])));
+                    vertices.Add(new Vector3(float.Parse(c[0]) * def.Scale, float.Parse(c[1]) * def.Scale, float.Parse(c[2]) * def.Scale));
                 } else if (line.StartsWith("vt ")) {
                     var c = line.Substring("vt ".Length).Split(' ');
                     uv.Add(new Vector2(float.Parse(c[0]), float.Parse(c[1])));
