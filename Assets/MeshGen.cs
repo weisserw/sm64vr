@@ -7,19 +7,21 @@ using System.Collections.Generic;
 
 public class MeshGen : MonoBehaviour {
     public Material baseMaterial;
+    public bool linked;
 
 	void Start () {
+        var def = LevelDefs.Defs[LevelDefs.CurrentLevel];
+
+        if (linked && def.LinkIndex == 0) {
+            gameObject.SetActive(false);
+            return;
+        }
+
         Mesh mesh = new Mesh();
 
-        var materials = LoadLevel(mesh, LevelDefs.Defs[LevelDefs.CurrentLevel]);
+        var materials = LoadLevel(mesh, def);
 
         mesh.RecalculateBounds();
-
-        // TODO: change direction, use left controller to fix moving when resetting position
-        // TODO: what happened to bridge in castle exterior?
-        // TODO: more maps
-        // TODO: stream music from youtube?
-        // TODO: investigate Zelda OOT
 
         GetComponent<MeshFilter>().mesh = mesh;
 
@@ -33,6 +35,8 @@ public class MeshGen : MonoBehaviour {
 
     private Material[] LoadLevel(Mesh mesh, LevelDef def) {
         int num = def.Index;
+        if (linked)
+            num = def.LinkIndex;
 
         List<Vector3> vertices = new List<Vector3>();
         List<Vector2> uv = new List<Vector2>();
@@ -54,7 +58,10 @@ public class MeshGen : MonoBehaviour {
         }
 
         var removemats = new HashSet<int>();
-        foreach (var m in def.RemoveMats) {
+        var mats = def.RemoveMats;
+        if (linked)
+            mats = def.LinkMats;
+        foreach (var m in mats) {
             if (m.IndexOf('-') > -1) {
                 var c = m.Split('-');
                 var end = int.Parse(c[1]);

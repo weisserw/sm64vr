@@ -18,7 +18,7 @@ public class ExtractData : MonoBehaviour {
             }
         }
 
-        var testpath = Application.dataPath + @"\..\M64_Levels\150\14.png";
+        var testpath = Application.dataPath + @"\..\BMPToPNG.ran.v1";
         var rompath = Application.dataPath + @"\..\Super Mario 64 (USA).n64";
         var exepath = Application.dataPath + @"\..\m64tool_r3.2\m64tool.exe";
 

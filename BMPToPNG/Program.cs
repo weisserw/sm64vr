@@ -13,11 +13,12 @@ namespace BMPToPNG {
             try {
 #if DEBUG
                 var startpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\..\..\..";
-                var transpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\..\..\..\transparent.txt";
 #else
                 var startpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var transpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\transparent.txt";
 #endif
+                var transpath = startpath + @"\transparent.txt";
+                var sentinalpath = startpath + @"\BMPToPNG.ran.v1";
+
                 var transparent = new Dictionary<string, Color>();
 
                 using (StreamReader sr = new StreamReader(transpath, Encoding.ASCII)) {
@@ -56,6 +57,8 @@ namespace BMPToPNG {
                         }
                     }
                 }
+
+                new FileStream(sentinalpath, FileMode.OpenOrCreate, FileAccess.Write).Close();
             } catch (Exception e) {
                 Console.Error.WriteLine(e.ToString());
                 return 1;
