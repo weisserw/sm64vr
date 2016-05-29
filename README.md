@@ -12,15 +12,21 @@ Pre-built binaries are available in the "Builds" directory. Use the "View Raw" l
 
 ## Controls
 
+### Right Controller
+
 * Touchpad Press: Activate pointer
 * Touchpad Release: Select menu item/teleport
 * Menu Button: Return to main menu
 * Grip + Trigger Buttons Together: Warp to initial spot on map
 
+### Left Controller
+
+* Grip: Fly in the direction you are looking
+* Touch left & right edges of touchpad: Rotate view
+
 ## Issues
 
-* Currently only four maps are implemented, as each one requires some manual fiddling to look right.
-* Teleporting sometimes goes through the floor.
+* Not all maps are implemented, as some do not export well with m64tool.
 * Random objects on maps which are not (easily) removable.
 * Levels need custom floors/skyboxes to look better.
 * A thousand other features which would be cool to add but aren't there yet.
